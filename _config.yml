@@ -1,0 +1,7 @@
+# show_downloads: true
+# google_analytics: G-GZNFK3DY0Z
+theme: jekyll-theme-cayman
+title: KuaiSAR
+description: "A Unified Search And Recommendation Dataset"
+github:
+  is_project_page: true
