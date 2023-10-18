@@ -54,7 +54,7 @@ It is important to note that the 'search_item_related' label is only valid when 
 | search_session_id      | The ID of each search session.                                            | int64     | 1                |
 | search_session_time    | Human-readable date for this search session (China, Beijing time zone).   | float64   | 2023-05-22 21:58:52 |
 | search_session_timestamp | Unix timestamp (millisecond).                                            | float64   | 1684763932919    |
-| keyword                | The keyword of the search session after anonymization.                    | list      | [20, 34, 3]      |
+| keyword                | The keyword of the issued query in this session. Each word has been hashed into integers after anonymization.                    | list      | [20, 34, 3]      |
 | search_source          | Search source of the search session                                       | string    | USER_INPUT       |
 | item_id                | The item ID shown to the user in the search session.                      | int64     | 103656000000     |
 | click_cnt              | Whether user click the shown item.                                        | int64     | 1                |
