@@ -40,6 +40,7 @@ File organization:
 | search_item_related  | Whether the content that users search for related to the currently watched video. | int64     | 1             |
 
 For recommendation actions, the ratio of data with click=0 and click=1 is approximately 1:1. We recommend using 'click' to distinguish positive and negative samples.
+Research papers on recommender systems typically predict users' implicit feedback, indicating whether users click on items. We recommend using this label as the implicit feedback label. In the short video context, the definition of 'click' is complex and business-specific (e.g., video playback duration). Hereby, 'click' can be simplified as implicit feedback.
 
 Please note: The "time" and "timestamp" in this table refer to the time when the system distributes items to users. Typically, the system sends multiple items to users at once, which can result in interactions between the user and some items having the same timestamp.
 
