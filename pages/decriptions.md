@@ -66,6 +66,8 @@ It is important to note that we define a user's search behavior as a search sess
 The user behaviors of searching without clicking may be due to the auto-play feature of the KuaiShou app. In some cases, after the video auto-plays and satisfies the user's information needs, the user exits the search system.
 If, during usage, it's desired that each session has at least one clicked item, you can choose the earliest appearing item in this session, as it's an automatically played video.
 
+To safeguard user privacy, we adhere to strict anoymization process to transform words in 'keyword' to hashed integers. For instance, given a query 'Where is the capital city of China', the final sequence is '[1, 2, 3, 4, 5, 6, 7]', where each integer denotes a single word.
+
 Furthermore, the search engine may return results that include items not present in the recommendation system. The recommendation system only recommends items with item_type "VIDEO" or "IMAGE_ATLAS" to users, while the search engine may return other types of items such as live streams ("LIVE") or user profiles ("USER").
 
 #### 3. Descriptions of the fields in social_network.csv
@@ -96,7 +98,7 @@ Furthermore, the search engine may return results that include items not present
 | Field Name                   | Description                                                      | Type      | Example     |
 | ---------------------------- | ---------------------------------------------------------------- | --------- | ----------- |
 | item_id                      | The ID of the item.                                              | int64     | 1           |
-| caption                      | The caption of the item after anonymization.                     | list      | [1, 213, 24]|
+| caption                      | The words of item captions after anonymization.  | list      | [1, 213, 24]|
 | author_id                    | The ID of the author (0 is padding).                                             | int64     | 10          |
 | item_type                    | The type of the item, e.g., normal video and ads.                                          | string    | NORMAL      |
 | upload_time                  | The upload datetime of the item (human readable: China,  Beijing time zone, 1970-1-1 is padding). | timestamp | 2023-04-22  |
@@ -116,6 +118,7 @@ Furthermore, the search engine may return results that include items not present
 
 The four categories are labels obtained through classifying the content of items from coarser to finer granularity.
 Not every item can ensure having four levels of categories. Some items only possess relatively coarse-grained category labels.
+As for 'caption', this feature undergoes the same anoymization process as 'keyword' in the 'src_inter.tsv'. If a caption text has identical words with a query, they will have identical integers within the sequences.
 
 ## Analysis
 
